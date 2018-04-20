@@ -78,7 +78,7 @@ stochastic.matrix <- new("markovchain", states=agents, byrow=TRUE,
 #Opinion Aggregation
 opinion.data <- list(random.opinions)
 i <- 1
-#DeGroot, Lehrer, Wagner model [ F^(n) = P^(k)F where P is a stochastic matrix and F is a column vector ] for 20 "deliberations"
+#DeGroot, Lehrer, Wagner model [ F^(n) = P^(n)F where P is a stochastic matrix and F is a column vector ] for 20 "deliberations"
 aggregation <- for(i in 1:20) {
   iterations <- stochastic.matrix^i
   consensus <- iterations * random.opinions
