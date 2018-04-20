@@ -28,8 +28,8 @@ profile.a2 <- c(self.a2, remaining.a2)
 profile.a3 <- c(self.a3, remaining.a3)
 
 opt <- matrix(c(profile.a1, profile.a2, profile.a3), byrow=TRUE, nrow=num.optimists)
-normalization <- function(x){ x / sum(x) }
-norm.opt <- apply(opt, 1, normalization)
+normalize <- function(x){ x / sum(x) }
+norm.opt <- apply(opt, 1, normalize)
 optimist.wts <- t(norm.opt)
 
 
@@ -41,7 +41,7 @@ self.a6 <- runif(length(agents), 0, 1)
 self.a7 <- runif(length(agents), 0, 1)
 
 fence <- matrix(c(self.a4, self.a5, self.a6, self.a7), byrow=TRUE, nrow=num.fencers)
-norm.fence <- apply(fence, 1, normalization)
+norm.fence <- apply(fence, 1, normalize)
 fencers.wts <- t(norm.fence)
 
 
@@ -61,7 +61,7 @@ profile.a9 <- c(remaining.a9, self.a2)
 profile.a10 <- c(remaining.a10, self.a3)
 
 pest <- matrix(c(profile.a8, profile.a9, profile.a10), byrow=TRUE, nrow=num.pessimists)
-norm.pest <- apply(pest, 1, normalization)
+norm.pest <- apply(pest, 1, normalize)
 pessimist.wts <- t(norm.pest)
 
 
